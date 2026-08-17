@@ -32,7 +32,9 @@ app.post("/", (req, res) => {
 			res.status(400).send("Expected body to be JSON.");
 			return;
 		}
+
 		if (
+			body === null ||
 			typeof body != "object" ||
 			!("quote" in body) ||
 			!("author" in body)
@@ -43,6 +45,15 @@ app.post("/", (req, res) => {
 			res.status(400).send(
 				"Expected body to be a JSON object containing keys quote and author.",
 			);
+			return;
+		}
+		if (
+			typeof body.quote !== "string" ||
+			typeof body.author !== "string" ||
+			body.quote.trim() === "" ||
+			body.author.trim() === ""
+		) {
+			res.status(400).send("Quote and author must not be empty.");
 			return;
 		}
 		quotes.push({
