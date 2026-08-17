@@ -11,12 +11,32 @@
 		<main>
 			<h1>Quote Generator</h1>
 			<section>
-				<span class="quote-mark quote-mark-open">"</span>
-				<p id="quote"></p>
-				<p id="author"></p>
-				<span class="quote-mark quote-mark-close">"</span>
+				<article>
+					<span class="quote-mark quote-mark-open">"</span>
+					<p id="quote"></p>
+					<p id="author"></p>
+					<span class="quote-mark quote-mark-close">"</span>
+				</article>
+				<button type="button" id="new-quote">New quote</button>
 			</section>
-			<button type="button" id="new-quote">New quote</button>
+			<section>
+				<form id="create-quote-form">
+					<label for="quote-input">Quote</label>
+					<textarea id="quote-input" name="quote" required></textarea>
+
+					<label for="author-input">Author</label>
+					<input
+						id="author-input"
+						name="author"
+						type="text"
+						required
+					/>
+
+					<button type="submit">Add quote</button>
+				</form>
+
+				<p id="form-feedback"></p>
+			</section>
 		</main>
 	</body>
 </html>
